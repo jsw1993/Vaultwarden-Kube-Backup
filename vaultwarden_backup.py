@@ -98,11 +98,11 @@ def cleanup():
         datadir = os.listdir(datapath)
         for file in datadir:
             if file.endswith("-bak.sqlite3"):
-                logging.info("Removing %d", file)
+                logging.info("Removing %s", file)
                 os.remove(datapath+"/"+file)
         return 0
     except os.error as error:
-        logging.error("Error cleaning up: %d", error)
+        logging.error('Error cleaning up: %d', error)
         return 1
 
 logging.basicConfig(

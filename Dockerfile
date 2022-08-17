@@ -4,7 +4,7 @@ COPY requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
 
-COPY vaultwarden-backup.py /opt/vaultwarden-backup.py
+COPY vaultwarden_backup.py /opt/vaultwarden_backup.py
 WORKDIR /opt
 
-ENTRYPOINT ["/usr/local/bin/python3", "vaultwarden-backup.py"]
+ENTRYPOINT ["/usr/local/bin/python3", "vaultwarden_backup.py"]
