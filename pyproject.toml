@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.9"
 boto3 = "^1.24.75"
 botocore = "^1.27.75"
+pylogrus = "^0.4.0"
+logging = "^0.4.9.6"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,6 +18,7 @@ black = "^22.8.0"
 isort = "^5.10.1"
 mypy = "^0.971"
 boto3-stubs = "^1.24.75"
+pre-commit = "^2.20.0"
 
 [build-system]
 requires = ["poetry-core"]
