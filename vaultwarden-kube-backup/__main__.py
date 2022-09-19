@@ -8,7 +8,7 @@ from datetime import datetime
 
 import boto3
 import botocore
-from pylogrus import PyLogrus, TextFormatter
+from pylogrus import JsonFormatter, PyLogrus
 
 
 def progress(status, remaining, total):
@@ -117,7 +117,7 @@ def get_logger():
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
-    formatter = TextFormatter(datefmt="Z", colorize=True)
+    formatter = JsonFormatter(datefmt="Z")
 
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
