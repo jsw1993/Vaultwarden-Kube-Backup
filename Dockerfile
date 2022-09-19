@@ -1,10 +1,12 @@
-FROM python:3.9.13-alpine
+FROM python:3-slim
 
-COPY requirements.txt requirements.txt
+COPY pyproject.toml /app/pyproject.toml
+WORKDIR /app
 
-RUN pip3 install -r requirements.txt
+RUN pip install "poetry"
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-dev
 
-COPY vaultwarden_backup.py /opt/vaultwarden_backup.py
-WORKDIR /opt
+COPY vaultwarden-kube-backup /app/vaultwarden-kube-backup
 
-ENTRYPOINT ["/usr/local/bin/python3", "vaultwarden_backup.py"]
+ENTRYPOINT ["/usr/local/bin/python3", "-m", "vaultwarden-kube-backup"]
