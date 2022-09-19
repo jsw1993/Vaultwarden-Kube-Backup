@@ -8,7 +8,7 @@ from datetime import datetime
 
 import boto3
 import botocore
-from pylogrus import JsonFormatter, PyLogrus
+from pylogrus import JsonFormatter, PyLogrus  # type: ignore
 
 
 def progress(status, remaining, total):
