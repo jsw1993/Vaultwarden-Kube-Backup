@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "vaultwarden-kube-backup"
+version = "0.1.0"
+description = "Container image designed to run as a k8s cronjob to backup vaultwarden"
+authors = ["James Williams <james@save-it.co.uk>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+boto3 = "^1.24.75"
+botocore = "^1.27.75"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+mypy = "^0.971"
+boto3-stubs = "^1.24.75"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
