@@ -27,15 +27,11 @@ def checksqlitefiles():
         logger.error("Error getting files in datapath: %d", error)
         return 1
     if len(sqlitefiles) > 1:
-        logging.warning(
-            "More than one sqlite file in data folder. This will mean a larger backup"
-        )
+        logging.warning("More than one sqlite file in data folder. This will mean a larger backup")
     if len(sqlitefiles) == 1:
         logging.info("One SQLite File found. This is expected behaviour")
     if "db.sqlite3" not in sqlitefiles:
-        logging.error(
-            "db.sqlite3 file not present. Are you sure this is a VaultWarden directory?"
-        )
+        logging.error("db.sqlite3 file not present. Are you sure this is a VaultWarden directory?")
         return 1
     return 0
 
@@ -66,9 +62,7 @@ def compressbackup():
         tar = tarfile.open(timestamp + ".tar.gz", "w:gz")
         with tar:
             logging.debug("Tar created sucesfully")
-            tar.add(
-                datapath, arcname=os.path.basename(datapath), filter=filter_function
-            )
+            tar.add(datapath, arcname=os.path.basename(datapath), filter=filter_function)
             logging.info("Files added to tar")
             tar.close()
             return 0
